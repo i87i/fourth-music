@@ -44,6 +44,11 @@ bot.on("ready", async () => {
 
 });
 bot.on('message', function(message) {
+	if(message.content === `${prefix}join`) {
+		bot.channels.get('478035881366650901').join().then(() => message.channel.send(`Joined`));
+	}
+});
+bot.on('message', function(message) {
 	const myID = "452191687159185409";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
